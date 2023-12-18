@@ -1,12 +1,42 @@
 //import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 
 // include your styles into the webpack bundle
 import "../styles/index.css";
 
-//import your own components
-import Home from "./component/home.jsx";
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+function Counter (props) {
+    return (<div className="Counter1"> 
+     <div className="Reloj"><i className="fa-regular fa-clock"></i></div>
+     <div className="four">{props.fila4}</div>
+     <div className="three">{props.fila3}</div>
+     <div className="two">{props.fila2}</div>
+     <div className="one">{props.fila1}</div>
+
+    </div>);
+}
+
+Counter.propTypes = {
+
+    fila1:PropTypes.number,
+    fila2: PropTypes.number,
+    fila3: PropTypes.number,
+    fila4: PropTypes.number
+
+};
+
+let counter = 0;
+
+
+setInterval(function(){
+const uno = Math.floor(counter/1)
+const dos = Math.floor(counter/10)
+const tres = Math.floor(counter/100)
+const cuatro = Math.floor(counter/1000)
+counter++;
+ReactDOM.render(<Counter fila1={uno} fila2={dos} fila3={tres} fila4={cuatro}/>, document.querySelector("#app"));
+
+}, 1000);
+
