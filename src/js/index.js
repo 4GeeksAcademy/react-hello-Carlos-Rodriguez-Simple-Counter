@@ -10,10 +10,10 @@ import "../styles/index.css";
 function Counter (props) {
     return (<div className="Counter1"> 
      <div className="Reloj"><i className="fa-regular fa-clock"></i></div>
-     <div className="four">{props.fila4}</div>
-     <div className="three">{props.fila3}</div>
-     <div className="two">{props.fila2}</div>
-     <div className="one">{props.fila1}</div>
+     <div className="four">{props.fila4 %10}</div>
+     <div className="three">{props.fila3 %10}</div>
+     <div className="two">{props.fila2 %10}</div>
+     <div className="one">{props.fila1 %10}</div>
 
     </div>);
 }
